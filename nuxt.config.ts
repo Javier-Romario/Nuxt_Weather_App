@@ -8,4 +8,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  runtimeConfig: {
+    WEATHER_API: process.env.NUXT_WEATHER_API,
+  },
 });
