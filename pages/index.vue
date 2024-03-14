@@ -1,10 +1,8 @@
 <template>
-  <div class="w-100 m-5 text-4xl">
-    <h1>Weather App</h1>
-    <p class="text-sky-900 dark:text-teal-200">
-      Enter a city to find out the weather
-    </p>
-
+  <div class="w-100 mx-5 mt-3 flex-grow flex flex-col">
+    <h1 class="text-center">Weather App</h1>
+    <div class="w-100 flex flex-col justify-center items-center flex-grow">
+    </div>
   </div>
 </template>
 

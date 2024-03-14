@@ -1,6 +1,40 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const showForm = ref(false);
+const searchText = ref("");
+</script>
 
 <template>
+  <div class="h-screen flex flex-col">
+    <div class="simpleNav dark:bg-slate-800">
+      <nav
+        class="shadow-md shadow-gray-200 dark:shadow-teal-200 md:flex space-x-10 py-3 px-3"
+      >
+        <nuxt-link to="/">
+          <span class="text-base font-medium text-gray-500 hover:text-gray-900">
+            Home
+          </span>
+        </nuxt-link>
+
+        <span
+          @click="showForm = !showForm"
+          class="text-base font-medium text-gray-500 hover:text-gray-900"
+        >
+          Search
+        </span>
+
+        <form v-show="showForm">
+          <input
+            :value="searchText"
+            @blur="showForm = false"
+            class="border border-red-200"
+            type="text"
+            placeholder="Search"
+          />
+        </form>
+      </nav>
+    </div>
+    <slot />
+  </div>
 </template>
 
 <style lang="css">
