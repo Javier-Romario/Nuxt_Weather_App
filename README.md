@@ -1,75 +1,41 @@
-# Nuxt 3 Minimal Starter
-
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
-Make sure to install the dependencies:
+# Weather App - Built with Nuxt 3
 
 ```bash
-# npm
+
+git clone https://github.com/Javier-Romario/Nuxt_Weather_App.git
+
+```
+
+## Installation & Setup
+
+Create a .env file with the provided API Key.
+
+```bash
+# Nuxt_Weather_App/.env
+
+NUXT_WEATHER_API=your_api_key
+```
+
+### Docker Instructions
+
+First, install Docker.
+I like using the awesome:
+[Docker Desktop](https://docs.docker.com/desktop/install/mac-install/),
+or [Orbstack](https://docs.orbstack.dev/install)
+
+To set up your docker container using Docker Compose, run the following command:
+
+```bash
+
+docker compose up --build
+
+```
+
+### Without Docker
+
+```bash
+cd Nuxt_Weather_App
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
 npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+node .output/server/index.mjs
 ```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
