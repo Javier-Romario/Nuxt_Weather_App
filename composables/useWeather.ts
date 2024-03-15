@@ -1,8 +1,9 @@
 import { getCityInformation } from "./useCity";
-const imperialConversion = (windSpeedMeters: number): number =>
-  windSpeedMeters / 1.609;
 
-export async function getWeatherInformation(city: String) {
+const imperialConversion = (windSpeedMetersPH: number): number =>
+  Math.round(windSpeedMetersPH * 2.237);
+
+export async function getWeatherInformation(city: string) {
   const config = useRuntimeConfig();
 
   const res = await getCityInformation(city);
@@ -20,8 +21,6 @@ export async function getWeatherInformation(city: String) {
     const { main: currentWeather } = cityWeather;
 
     const rain = cityWeather.rain ? cityWeather.rain["1h"] : 0;
-
-    // console.log(cityWeather.wind.speed, "convert me from meters per hour");
 
     const wind = cityWeather.wind
       ? imperialConversion(cityWeather.wind.speed)

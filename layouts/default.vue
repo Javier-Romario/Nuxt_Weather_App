@@ -1,13 +1,12 @@
 <script setup lang="ts">
 const showForm = ref(false);
-const searchText = ref("");
 </script>
 
 <template>
   <div class="h-screen flex flex-col">
-    <div class="simpleNav dark:bg-slate-800">
+    <div class="simpleNav dark:bg-slate-800 relative">
       <nav
-        class="shadow-md shadow-gray-200 dark:shadow-teal-200 md:flex space-x-10 py-3 px-3"
+        class="shadow-md shadow-gray-200 dark:shadow-teal-200 md:flex space-x-10 py-3 px-3 bg-white dark:bg-slate-800 z-30 relative"
       >
         <nuxt-link to="/">
           <span class="text-base font-medium text-gray-500 hover:text-gray-900">
@@ -19,19 +18,18 @@ const searchText = ref("");
           @click="showForm = !showForm"
           class="text-base font-medium text-gray-500 hover:text-gray-900"
         >
-          Search
+          Search City
         </span>
-
-        <form v-show="showForm">
-          <input
-            :value="searchText"
-            @blur="showForm = false"
-            class="border border-red-200"
-            type="text"
-            placeholder="Search"
-          />
-        </form>
       </nav>
+      <transition>
+        <div
+          :class="{ slide: showForm }"
+          v-if="showForm"
+          class="p-3 absolute z-20"
+        >
+          <nav-form @search="showForm = false"> hello </nav-form>
+        </div>
+      </transition>
     </div>
     <slot />
   </div>
@@ -126,5 +124,18 @@ textarea:not([rows]) {
 /* Anything that has been anchored to should have extra scroll margin */
 :target {
   scroll-margin-block: 5ex;
+}
+
+.v-enter-from {
+  top: -100%;
+}
+.v-enter-to {
+  top: 100%;
+}
+.v-enter-active {
+  transition: top 0.4s ease-in-out;
+}
+
+.slide {
 }
 </style>
